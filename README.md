@@ -33,12 +33,16 @@ npm run lint
 
 #### store vuex的配置
 
+
 #### 打包
 已在package.json里面配置本地，测试，预发布，正式等环境
+.env则是对环境变量的配置
 
 ### 已经将vue.config.js文件引入
 
 ### api 文件主要对api进行了一层封装
+这样不同的模块可以管理不同的api
 
 ### layout组件用来提供嵌套路由
+
 
