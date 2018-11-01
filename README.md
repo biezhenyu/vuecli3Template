@@ -38,3 +38,7 @@ npm run lint
 
 ### 已经将vue.config.js文件引入
 
+### api 文件主要对api进行了一层封装
+
+### layout组件用来提供嵌套路由
+
