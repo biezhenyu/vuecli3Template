@@ -42,20 +42,16 @@ function toApi(apiConfig) {
       // 生成对应请求方法
       api[module][item.name] = (params, callback, errorCallback) => {
 
-        return new Promise((resolve, reject) => {
-          axios({
-            method: item.method || 'post',
-            url: getUrl(params, item),
-            data: params,
-          }).then(response => {
-            if (callback) callback(response, params, item);
-            response ? resolve(response.data) : resolve({msg: '请求失败，没有返回信息！'});
-          }).catch(error => {
-            if (errorCallback) errorCallback(error, params, item);
-            reject({error, msg: 'catch —— 请求报错了，捕获错误信息！' + error})
-          });
-        })
-        
+        return axios({
+          method: item.method || 'post',
+          url: getUrl(params, item),
+          data: params,
+        }).then(response => {
+          if (callback) callback(response, params, item);
+          return response ? response.data : {msg: '请求失败，没有返回信息！'};
+        }).catch(error => {
+          if (errorCallback) errorCallback(error, params, item)
+        });   
       };
     });
   }

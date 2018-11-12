@@ -45,7 +45,7 @@ module.exports = {
    proxy: {
     '/': {
       ws: false,
-      target: 'http://www.kuaidi100.com',
+      target: 'https://www.zhipin.com',
       changeOrigin: true,
       pathRewrite: {
         '/': ''
@@ -53,7 +53,6 @@ module.exports = {
       
     }
    }, // 设置代理
-   before: app => {}
   },
   // 第三方插件配置
   pluginOptions: {

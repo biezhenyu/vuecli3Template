@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     async query() {
-      const info = await this.$api.test.query({ type: 'yuantong', postid: '11111111111'});
+      const info = await this.$api.test.query({});
       console.log(info.data)
     }
   }
