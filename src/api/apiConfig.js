@@ -169,7 +169,7 @@ instance.interceptors.response.use(response => {
         msg: error.response.statusText,
         exception: [error.response.status, error.response.statusText, error.response.request.responseURL].join(" "),
         total: undefined,
-        data: error.response.statusText,
+        data: error.response.data,
     });
 });
 export default instance;
