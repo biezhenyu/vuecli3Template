@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import layout from '@/components/common/layout'
+import layout from '@/layout/default'
 import errorPage from '@/views/errorPage'
 import common from './common'
 import Home from '@/views/Home.vue'

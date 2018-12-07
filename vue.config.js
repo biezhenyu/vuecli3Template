@@ -1,7 +1,11 @@
 // 在控制台打印
+console.log('***************************')
 console.log('环境:' + process.env.NODE_ENV)
-console.log('VUE_APP_URL:' + process.env.VUE_APP_URL)
-console.log('VUE_APP_URL:' + process.env.VUE_APP_APIURL)
+console.log('前端域名:' + process.env.VUE_APP_URL)
+console.log('接口地址:' + process.env.VUE_APP_APIURL)
+console.log('***************************')
+
+
 module.exports = {
 
   baseUrl: process.env.VUE_APP_URL || '/',

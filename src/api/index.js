@@ -61,5 +61,3 @@ function toApi(apiConfig) {
 let api = toApi(apiConfig);
 
 export default api;
-
-// 着这里配置了可以使用 async/awit的方式
