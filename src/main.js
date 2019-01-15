@@ -4,6 +4,9 @@ import router from './router';
 
 import store from './store';     // vuex
 
+import ElementUI from 'element-ui'
+Vue.use(ElementUI)
+
 import filters from './filters'; // 全局过滤器
 Vue.prototype.$filters = filters;
 
