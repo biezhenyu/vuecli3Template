@@ -14,7 +14,8 @@ const externals = {
   'vue-router': 'VueRouter',
   'vuex': 'Vuex',
   'axios': 'axios',
-  'element-ui': 'ELEMENT'
+  'element-ui': 'ELEMENT',
+  'moment': 'Moment'
 }
 
 const cdn = {
@@ -22,6 +23,7 @@ const cdn = {
   dev: {
     css: [
       'https://unpkg.com/element-ui/lib/theme-chalk/index.css',
+      'https://cdn.bootcss.com/moment.js/2.23.0/locale/af.js'
     ],
     js: []
   },
@@ -36,6 +38,7 @@ const cdn = {
       'https://cdn.bootcss.com/vuex/3.0.1/vuex.min.js',
       'https://cdn.bootcss.com/axios/0.18.0/axios.min.js',
       'https://unpkg.com/element-ui/lib/index.js',
+      'https://cdn.bootcss.com/moment.js/2.23.0/locale/af.js'
     ]
   }
 }
