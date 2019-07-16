@@ -40,18 +40,32 @@ function toApi(apiConfig) {
     apiConfig[module].forEach((item) => {
 
       // 生成对应请求方法
-      api[module][item.name] = (params, callback, errorCallback) => {
+      api[module][item.name] = (params, callback) => {
 
         return axios({
           method: item.method || 'post',
           url: getUrl(params, item),
           data: params,
-        }).then(response => {
-          if (callback) callback(response, params, item);
+        })
+        .then(response => {
           return response ? response.data : {msg: '请求失败，没有返回信息！'};
-        }).catch(error => {
-          if (errorCallback) errorCallback(error, params, item)
-        });   
+        })
+
+        // 可以在这里修正一些接口返回的不适合的信息
+        .then(response => {
+
+          if (response.status && response.status !== 200) {
+            return response;
+          }
+          if (callback) callback(response, params, item);
+          return response;
+        })
+        .catch(error => {
+          return {
+            error,
+            msg: 'catch —— 请求报错了，捕获错误信息！' + error,
+          };
+        });    
       };
     });
   }

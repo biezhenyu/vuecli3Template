@@ -1,6 +1,6 @@
 // axios默认配置，如如特需需求，不用修改
 import axios from 'axios';
-import qs from 'qs';
+// import qs from 'qs';
 //此文件配置请求前置操作,后置操作
 //若增加log可以写到此文件
 
@@ -19,15 +19,15 @@ const instance = axios.create({
     // `transformRequest` allows changes to the request data before it is sent to the server
     // This is only applicable for request methods 'PUT', 'POST', and 'PATCH'
     // The last function in the array must return a string, an ArrayBuffer, or a Stream
-    transformRequest: [function(data) {
-        // Do whatever you want to transform the data  
-        // if(store.state.token) data.token = store.state.token;
-        /*if(process.env.NODE_ENV !== 'production'){
-            data.userId= "admin"
-        }*/
-        return qs.stringify(data, {arrayFormat: 'indices'});
-        // return qs.stringify(data, {arrayFormat: 'brackets'});
-    }],
+    // transformRequest: [function(data) {
+    //     // Do whatever you want to transform the data  
+    //     // if(store.state.token) data.token = store.state.token;
+    //     /*if(process.env.NODE_ENV !== 'production'){
+    //         data.userId= "admin"
+    //     }*/
+        
+    //     return qs.stringify(data, {arrayFormat: 'brackets'});
+    // }],
 
     // `transformResponse` allows changes to the response data to be made before
     // it is passed to then/catch
@@ -165,11 +165,11 @@ instance.interceptors.response.use(response => {
 }, error => {
     // 这里我们把错误信息扶正, 后面就不需要写 catch 了
     return Promise.resolve({
-        isSuccess: false,
-        msg: error.response.statusText,
         exception: [error.response.status, error.response.statusText, error.response.request.responseURL].join(" "),
-        total: undefined,
-        data: error.response.data,
+        msg: error.response.statusText,
+
+        // eslint-disable-next-line
+        data: response.statusText,
     });
 });
 export default instance;
