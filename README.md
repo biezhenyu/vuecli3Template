@@ -29,7 +29,7 @@ npm run lint
 需要配置的过滤器在filter下面配置, 引用已在main.js里面配置
 
 #### util提供全局的工具方法
-需要配置的过滤器在util下面配置
+需要配置的工具函数在util下面配置
 
 #### store vuex的配置
 
