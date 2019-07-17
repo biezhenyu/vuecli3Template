@@ -6,20 +6,19 @@
 </template>
 
 <script>
-
 export default {
   name: 'home',
   components: {
   },
   created() {
     // 测试请求
-    this.query()
+    // this.query()
   },
   methods: {
-    async query() {
-      const info = await this.$api.test.query({});
-      console.log(info.data)
-    }
+    // async query() {
+    //   const info = await this.$api.test.query();
+    //   console.log(info)
+    // }
   }
 }
 </script>

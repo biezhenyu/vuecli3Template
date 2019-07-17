@@ -46,17 +46,16 @@ module.exports = {
    port: 8085,
    https: false,
    hotOnly: false,
-   proxy: {
-    '/': {
-      ws: false,
-      target: 'https://www.zhipin.com',
-      changeOrigin: true,
-      pathRewrite: {
-        '/': ''
-      },
-      
-    }
-   }, // 设置代理
+  //  proxy: {
+  //   '/': {
+  //     ws: false,
+  //     target: 'https://api.apiopen.top',
+  //     changeOrigin: true,
+  //     pathRewrite: {
+  //       '/': ''
+  //     },
+  //   }
+  //  }, // 设置代理
   },
   // 第三方插件配置
   pluginOptions: {
