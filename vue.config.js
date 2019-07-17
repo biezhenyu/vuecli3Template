@@ -16,9 +16,25 @@ module.exports = {
   lintOnSave: true,
 
   // webpack配置
-  // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
   chainWebpack: () => {},
-  configureWebpack: () => {},
+
+  configureWebpack: config => {
+    if (process.env.NODE_ENV === 'production') {
+      // 为生产环境修改配置...
+      config.plugins.push({
+        apply: (compiler) => {
+          // 这打包已经完成
+          compiler.hooks.done.tap('delContent', compilation => {
+            console.log('compilation: ', compilation);
+            
+          });
+        }
+      })
+    } else {
+      // 为开发环境修改配置...
+    }
+  },
+
 
   // 生产环境是否生成 sourceMap 文件
   productionSourceMap: true,
@@ -26,7 +42,7 @@ module.exports = {
 
   css: {
    // 是否使用css分离插件 ExtractTextPlugin
-   extract: true,
+   extract: process.env.NODE_ENV === 'development' ? false : true,
    // 开启 CSS source maps?
    sourceMap: false,
    // css预设器配置项
