@@ -15,8 +15,18 @@ Vue.prototype.$api = api;
 import util from './util';
 Vue.prototype.$util = util;
 
-import { Button } from 'ant-design-vue';
-Vue.component(Button.name, Button)
+import { 
+  Button,
+  Layout,
+  Menu,
+  Icon
+} from 'ant-design-vue';
+
+
+Vue.use(Button)
+   .use(Layout)
+   .use(Icon)
+   .use(Menu);
 
 // momnent
 Vue.prototype.$moment = require('moment');
@@ -27,4 +37,4 @@ new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');
