@@ -26,7 +26,7 @@ module.exports = {
           // 这打包已经完成
           compiler.hooks.done.tap('delContent', compilation => {
             console.log('compilation: ', compilation);
-            
+
           });
         }
       })
@@ -41,14 +41,18 @@ module.exports = {
   // css相关配置
 
   css: {
-   // 是否使用css分离插件 ExtractTextPlugin
-   extract: process.env.NODE_ENV === 'development' ? false : true,
-   // 开启 CSS source maps?
-   sourceMap: false,
-   // css预设器配置项
-   loaderOptions: {},
-   // 启用 CSS modules for all css / pre-processor files.
-   modules: false
+    // 是否使用css分离插件 ExtractTextPlugin
+    extract: process.env.NODE_ENV === 'development' ? false : true,
+    // 开启 CSS source maps?
+    sourceMap: false,
+    // css预设器配置项
+    loaderOptions: {
+      less: {
+        javascriptEnabled: true,
+      }
+    },
+    // 启用 CSS modules for all css / pre-processor files.
+    modules: false
   },
 
   // use thread-loader for babel & TS in production build
@@ -57,24 +61,24 @@ module.exports = {
 
   // webpack-dev-server 相关配置
   devServer: {
-   open: process.platform === 'darwin',
-   host: 'localhost',
-   port: 8085,
-   https: false,
-   hotOnly: false,
-  //  proxy: {
-  //   '/': {
-  //     ws: false,
-  //     target: 'https://api.apiopen.top',
-  //     changeOrigin: true,
-  //     pathRewrite: {
-  //       '/': ''
-  //     },
-  //   }
-  //  }, // 设置代理
+    open: process.platform === 'darwin',
+    host: 'localhost',
+    port: 8085,
+    https: false,
+    hotOnly: false,
+    //  proxy: {
+    //   '/': {
+    //     ws: false,
+    //     target: 'https://api.apiopen.top',
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       '/': ''
+    //     },
+    //   }
+    //  }, // 设置代理
   },
   // 第三方插件配置
   pluginOptions: {
-   
+
   }
 }

@@ -15,6 +15,9 @@ Vue.prototype.$api = api;
 import util from './util';
 Vue.prototype.$util = util;
 
+import { Button } from 'ant-design-vue';
+Vue.component(Button.name, Button)
+
 // momnent
 Vue.prototype.$moment = require('moment');
 

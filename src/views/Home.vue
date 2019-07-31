@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <h3>vue的模板</h3>
+    <a-button type="primary">vue.ant.design</a-button>
+    <h3 class="titile">vue</h3>
   </div>
 </template>
 
@@ -10,15 +11,22 @@ export default {
   name: 'home',
   components: {
   },
+  data() {
+    return {
+      html: '<a class="click">事件</a>'
+    }
+  }, 
   created() {
     // 测试请求
     // this.query()
+
   },
   methods: {
-    // async query() {
-    //   const info = await this.$api.test.query();
-    //   console.log(info)
-    // }
+    
+  },
+  mounted() {
+    
   }
+
 }
 </script>
